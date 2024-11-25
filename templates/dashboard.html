@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<div class="dashboard">
+    <h2>Welcome, {{ username }}</h2>
+    <div class="products">
+        <div class="product-panel">
+            <h3>1-Day Access</h3>
+            <p>Get full access to our premium content for 24 hours.</p>
+            <button onclick="window.location.href='{{ url_for('catalog', catalog_id=1) }}'">Buy Now</button>
+        </div>
+        <div class="product-panel">
+            <h3>30-Day Access</h3>
+            <p>Enjoy unlimited access for 30 days at an affordable price.</p>
+            <button onclick="window.location.href='{{ url_for('catalog', catalog_id=2) }}'">Buy Now</button>
+        </div>
+        <div class="product-panel">
+            <h3>Permanent Access</h3>
+            <p>One-time payment for lifetime access to all features and content.</p>
+            <button onclick="window.location.href='{{ url_for('catalog', catalog_id=3) }}'">Buy Now</button>
+        </div>
+    </div>
+    <a class="logout" href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.dashboard {
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h2 {
+    margin-bottom: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-panel {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-panel h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-panel p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-panel button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.product-panel button:hover {
+    background: #0056b3;
+}
+
+.logout {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.logout:hover {
+    color: #0056b3;
+}
+</style>
+{% endblock %}
